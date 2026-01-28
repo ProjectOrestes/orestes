@@ -16,7 +16,7 @@ function App() {
             <Link to="/dashboard" className="text-2xl font-black tracking-tighter text-blue-400 hover:text-blue-300 transition-colors">
               APP2 <span className="text-white font-light">STOCK</span>
             </Link>
-            
+            {/* Menú de Navegación */}
             {/* Menú de Navegación */}
             <nav className="hidden md:flex space-x-6 text-sm font-bold uppercase tracking-widest">
               <Link to="/dashboard" className="hover:text-blue-400 transition-colors">Dashboard</Link>
