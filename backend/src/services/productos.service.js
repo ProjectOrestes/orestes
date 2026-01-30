@@ -1,0 +1,36 @@
+//Acá vive TODA la lógica de la DB
+
+import prisma from "../config/prisma.js";
+
+export const getAllProductos = async () => {
+  return prisma.producto.findMany({
+    where: { activo: true },
+    orderBy: { createdAt: "desc" }
+  });
+};
+
+export const getProductoById = async (id) => {
+  return prisma.producto.findUnique({
+    where: { id }
+  });
+};
+
+export const createProducto = async (data) => {
+  return prisma.producto.create({
+    data
+  });
+};
+
+export const updateProducto = async (id, data) => {
+  return prisma.producto.update({
+    where: { id },
+    data
+  });
+};
+
+export const deleteProducto = async (id) => {
+  return prisma.producto.update({
+    where: { id },
+    data: { activo: false }
+  });
+};
