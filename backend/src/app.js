@@ -7,6 +7,9 @@ import productosRoutes from "./routes/productos.routes.js";
 //import dashboardRoutes from "./routes/dashboard.routes.js";
 //import authRoutes from "./routes/auth.routes.js";
 
+//import de middlewares
+import { errorMiddleware } from "./middlewares/error.middleware.js";
+
 const app = express(); //app define rutas, configura middlewares y maneja requests y responses
 
 app.use(cors()); //middleware global (habilita requests desde otros origenes)
@@ -21,5 +24,8 @@ app.use("/api/productos", productosRoutes);
 //app.use("/api/reportes", reportesRoutes);
 //app.use("/api/dashboard", dashboardRoutes);
 //app.use("/api/auth", authRoutes);
+
+//definicion de middlewares
+app.use(errorMiddleware);
 
 export default app;

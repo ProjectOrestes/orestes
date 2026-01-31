@@ -1,6 +1,8 @@
-//este archivo no toca Prisma directamente. Solamente recibe request, valida mínimamente y responde HTTP.
+// Este archivo no toca Prisma directamente.
+// Solamente recibe request, valida mínimamente y responde HTTP.
 
 import * as productosService from "../services/productos.service.js";
+import { createProductoSchema } from "../schemas/productos.schema.js";
 
 export const getProductos = async (req, res) => {
   const productos = await productosService.getAllProductos();
@@ -18,10 +20,16 @@ export const getProducto = async (req, res) => {
   res.json(producto);
 };
 
-export const createProducto = async (req, res) => {
-  const producto = await productosService.createProducto(req.body);
-  res.status(201).json(producto);
+export const createProducto = async (req, res, next) => {
+  try {
+    const data = createProductoSchema.parse(req.body);
+    const producto = await productosService.createProducto(data);
+    res.status(201).json(producto);
+  } catch (error) {
+    next(error);
+  }
 };
+
 
 export const updateProducto = async (req, res) => {
   const id = Number(req.params.id);
