@@ -2,7 +2,10 @@
 // Solamente recibe request, valida mínimamente y responde HTTP.
 
 import * as productosService from "../services/productos.service.js";
-import { createProductoSchema } from "../schemas/productos.schema.js";
+import {
+  createProductoSchema,
+  updateProductoSchema,
+} from "../schemas/productos.schema.js";
 
 export const getProductos = async (req, res) => {
   const productos = await productosService.getAllProductos();
@@ -30,11 +33,15 @@ export const createProducto = async (req, res, next) => {
   }
 };
 
-
-export const updateProducto = async (req, res) => {
-  const id = Number(req.params.id);
-  const producto = await productosService.updateProducto(id, req.body);
-  res.json(producto);
+export const updateProducto = async (req, res, next) => {
+  try {
+    const id = Number(req.params.id);
+    const data = updateProductoSchema.parse(req.body);
+    const producto = await productosService.updateProducto(id, data);
+    res.json(producto);
+  } catch (error) {
+    next(error);
+  }
 };
 
 export const deleteProducto = async (req, res) => {

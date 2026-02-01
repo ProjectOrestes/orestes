@@ -22,6 +22,16 @@ export const createProducto = async (data) => {
 };
 
 export const updateProducto = async (id, data) => {
+  const existe = await prisma.producto.findUnique({
+    where: { id }
+  });
+
+  if (!existe) {
+    const error = new Error("Producto no encontrado");
+    error.status = 404;
+    throw error;
+  }
+
   return prisma.producto.update({
     where: { id },
     data
