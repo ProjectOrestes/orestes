@@ -28,3 +28,10 @@ export const productoIdParamSchema = z.object({
     .int()
     .positive("El id debe ser un número entero positivo"),
 });
+
+export const productosQuerySchema = z.object({
+  page: z.coerce.number().int().positive().default(1),
+  limit: z.coerce.number().int().positive().max(50).default(10),
+  search: z.string().optional(),
+  activo: z.coerce.boolean().optional(),
+});
