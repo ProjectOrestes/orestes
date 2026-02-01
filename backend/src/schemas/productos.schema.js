@@ -21,3 +21,10 @@ export const updateProductoSchema = z
   .refine((data) => Object.keys(data).length > 0, {
     message: "Debe enviar al menos un campo para actualizar",
   });
+
+export const productoIdParamSchema = z.object({
+  id: z.coerce
+    .number()
+    .int()
+    .positive("El id debe ser un número entero positivo"),
+});

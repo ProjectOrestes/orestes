@@ -22,11 +22,11 @@ export const createProducto = async (data) => {
 };
 
 export const updateProducto = async (id, data) => {
-  const existe = await prisma.producto.findUnique({
-    where: { id }
+  const producto = await prisma.producto.findUnique({
+    where: { id },
   });
 
-  if (!existe) {
+  if (!producto) {
     const error = new Error("Producto no encontrado");
     error.status = 404;
     throw error;
@@ -34,7 +34,7 @@ export const updateProducto = async (id, data) => {
 
   return prisma.producto.update({
     where: { id },
-    data
+    data,
   });
 };
 

@@ -2,9 +2,12 @@
 // Solamente recibe request, valida mínimamente y responde HTTP.
 
 import * as productosService from "../services/productos.service.js";
+
+import { idParamSchema } from "../schemas/common.schema.js";
 import {
   createProductoSchema,
   updateProductoSchema,
+  productoIdParamSchema,
 } from "../schemas/productos.schema.js";
 
 export const getProductos = async (req, res) => {
@@ -13,7 +16,8 @@ export const getProductos = async (req, res) => {
 };
 
 export const getProducto = async (req, res) => {
-  const id = Number(req.params.id);
+  const { id } = idParamSchema.parse(req.params);
+
   const producto = await productosService.getProductoById(id);
 
   if (!producto) {
@@ -33,19 +37,18 @@ export const createProducto = async (req, res, next) => {
   }
 };
 
-export const updateProducto = async (req, res, next) => {
-  try {
-    const id = Number(req.params.id);
-    const data = updateProductoSchema.parse(req.body);
-    const producto = await productosService.updateProducto(id, data);
-    res.json(producto);
-  } catch (error) {
-    next(error);
-  }
+export const updateProducto = async (req, res) => {
+  const { id } = productoIdParamSchema.parse(req.params); //params
+  const data = updateProductoSchema.parse(req.body);       //body
+
+  const producto = await productosService.updateProducto(id, data);
+
+  res.json(producto);
 };
 
 export const deleteProducto = async (req, res) => {
-  const id = Number(req.params.id);
+  const { id } = idParamSchema.parse(req.params);
+
   await productosService.deleteProducto(id);
   res.status(204).send();
 };

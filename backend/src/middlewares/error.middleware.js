@@ -6,10 +6,10 @@ export const errorMiddleware = (err, req, res, next) => {
   if (err instanceof ZodError) {
     return res.status(400).json({
       message: "Datos inválidos",
-      errors: err.errors.map(e => ({
+      errors: err.issues.map((e) => ({
         field: e.path.join("."),
-        message: e.message
-      }))
+        message: e.message,
+      })),
     });
   }
 
@@ -17,7 +17,14 @@ export const errorMiddleware = (err, req, res, next) => {
   if (err instanceof Prisma.PrismaClientKnownRequestError) {
     return res.status(400).json({
       message: "Error de base de datos",
-      code: err.code
+      code: err.code,
+    });
+  }
+
+  // ERROR CON STATUS PERSONALIZADO
+  if (err.status) {
+    return res.status(err.status).json({
+      message: err.message,
     });
   }
 
@@ -25,6 +32,6 @@ export const errorMiddleware = (err, req, res, next) => {
   console.error(err);
 
   res.status(500).json({
-    message: "Error interno del servidor"
+    message: "Error interno del servidor",
   });
 };
