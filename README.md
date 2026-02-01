@@ -10,11 +10,7 @@ El objetivo principal del proyecto es construir una aplicación web capaz de alm
 
 La aplicación sigue una arquitectura cliente-servidor:
 
-React (Frontend)
-   ↓ HTTP (JSON)
-Express (Backend)
-   ↓ Prisma
-PostgreSQL (Database)
+React (Frontend) → HTTP (JSON) → Express (Backend) → Prisma → PostgreSQL (Database)
 
 ---
 
@@ -74,15 +70,11 @@ Características:
 
 📁 Estructura general del proyecto
 
-orestes/
-├─ frontend/        # React + Vite
-├─ backend/         # Node + Express
-│  ├─ prisma/
-│  │  ├─ schema.prisma
-│  │  └─ migrations/
-│  └─ src/
-├─ README.md
-└─ .gitignore
+orestes/ 
+
+frontend/ # React + Vite
+
+backend/         # Node + Express
 
 ---
 
