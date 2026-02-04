@@ -3,6 +3,7 @@ import CargaStock from './pages/CargaStock';
 import Inventario from './pages/Inventario';
 import Dashboard from './pages/Dashboard';
 import Reportes from './pages/Reportes';
+import Register from './pages/Register'; // Import the new Register component
 import { LogOut } from 'lucide-react';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
               <NavLink to="/carga" className={navLinkClass}>Carga</NavLink>
               <NavLink to="/inventario" className={navLinkClass}>Inventario</NavLink>
               <NavLink to="/reportes" className={navLinkClass}>Reportes</NavLink>
+              <NavLink to="/register" className={navLinkClass}>Registro</NavLink>
             </nav>
 
             <button className="group flex items-center space-x-2 bg-slate-800 hover:bg-red-900/40 px-4 py-2 rounded-xl text-[10px] font-black border border-slate-700 hover:border-red-700 transition-all uppercase tracking-widest">
@@ -44,6 +46,7 @@ function App() {
             <Route path="/carga" element={<CargaStock />} />
             <Route path="/inventario" element={<Inventario />} />
             <Route path="/reportes" element={<Reportes />} />
+            <Route path="/register" element={<Register />} /> {/* Add the new Register route */}
             <Route path="/" element={<Dashboard />} />
           </Routes>
         </main>
