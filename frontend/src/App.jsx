@@ -3,7 +3,7 @@ import CargaStock from './pages/CargaStock';
 import Inventario from './pages/Inventario';
 import Dashboard from './pages/Dashboard';
 import Reportes from './pages/Reportes';
-import Register from './pages/Register'; // Import the new Register component
+import Register from './pages/Register'; 
 import { LogOut } from 'lucide-react';
 
 function App() {
