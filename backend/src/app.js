@@ -1,31 +1,29 @@
-import express from "express"; //framework a usar para crear servidores y rutas
-import cors from "cors"; //permite la comunicacion entre el front y el back
+import express from "express"; 
+import cors from "cors"; 
 
-//imports de las rutas, activas y en desarrollo
+// Imports de las rutas
 import productosRoutes from "./routes/productos.routes.js";
-//import reportesRoutes from "./routes/reportes.routes.js";
-//import dashboardRoutes from "./routes/dashboard.routes.js";
-//import authRoutes from "./routes/auth.routes.js";
+import reportesRoutes from "./routes/reportes.routes.js"; // <-- Descomentado
+import dashboardRoutes from "./routes/dashboard.routes.js"; // <-- Descomentado
+// import authRoutes from "./routes/auth.routes.js";
 
-//import de middlewares
 import { errorMiddleware } from "./middlewares/error.middleware.js";
 
-const app = express(); //app define rutas, configura middlewares y maneja requests y responses
+const app = express(); 
 
-app.use(cors()); //middleware global (habilita requests desde otros origenes)
-app.use(express.json()); //le dice a express que al llegar una request con JSON, se lo pase automáticamente
+app.use(cors()); 
+app.use(express.json()); 
 
-app.get("/api/health", (req, res) => { //define una ruta con metodo GET y endpoint /api/health
-  res.json({ status: "ok" });  //devuelve una respuesta JSON al cliente
+app.get("/api/health", (req, res) => { 
+  res.json({ status: "ok" });  
 });
 
-//rutas de la API, activas y en desarrollo 
+// Rutas de la API activadas
 app.use("/api/productos", productosRoutes);
-//app.use("/api/reportes", reportesRoutes);
-//app.use("/api/dashboard", dashboardRoutes);
-//app.use("/api/auth", authRoutes);
+app.use("/api/reportes", reportesRoutes); // <-- Activado
+app.use("/api/dashboard", dashboardRoutes); // <-- Activado
+// app.use("/api/auth", authRoutes);
 
-//definicion de middlewares
 app.use(errorMiddleware);
 
 export default app;
