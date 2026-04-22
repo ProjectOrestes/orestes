@@ -12,3 +12,16 @@
     font-family: 'GFS Neohellenic', serif;
   }
 }
+
+@font-face {
+  font-family: 'GFS Artemisia';
+  src: url('/assets/fonts/GFSArtemisia.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@layer utilities {
+  .font-artemisia {
+    font-family: 'GFS Artemisia', serif;
+  }
+}

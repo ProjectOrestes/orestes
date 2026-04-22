@@ -11,10 +11,9 @@ const Header = () => {
     <header className="bg-slate-900 text-white shadow-2xl p-4 sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
         
-        <Link to="/dashboard" className="text-2xl font-black tracking-tighter flex items-center space-x-2">
-          <OrestesLogo className="w-9 h-9 text-blue-400" />
-          <span className="text-white font-neohellenic lowercase tracking-normal">orestes</span>
-        </Link>
+        <Link to="/dashboard" className="flex items-center">
+           <OrestesLogo className="h-4.5 w-auto text-white" />
+           </Link>
         
         <nav className="hidden md:flex space-x-8 text-[11px] font-black uppercase tracking-[0.2em]">
           <NavLink to="/dashboard" className={navLinkClass}>Dashboard</NavLink>
