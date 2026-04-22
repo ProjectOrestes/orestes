@@ -1,5 +1,6 @@
 import { NavLink, Link } from 'react-router-dom';
 import { LogOut } from 'lucide-react';
+import OrestesLogo from '../../ui/icons/OrestesLogo';
 
 const Header = () => {
 
@@ -11,8 +12,8 @@ const Header = () => {
       <div className="container mx-auto flex justify-between items-center">
         
         <Link to="/dashboard" className="text-2xl font-black tracking-tighter flex items-center space-x-2">
-          <span className="bg-blue-600 text-white px-2 py-0.5 rounded-lg text-xl italic">O</span>
-          <span className="text-white">ORESTES</span>
+          <OrestesLogo className="w-9 h-9 text-blue-400" />
+          <span className="text-white font-neohellenic lowercase tracking-normal">orestes</span>
         </Link>
         
         <nav className="hidden md:flex space-x-8 text-[11px] font-black uppercase tracking-[0.2em]">
