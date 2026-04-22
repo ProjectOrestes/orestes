@@ -1,105 +1,73 @@
-# Orestes
+<p align="center">
+  <img src="frontend/public/assets/main/orestes.svg" width="200" alt="Penta">
+</p>
 
-Orestes es un proyecto web en desarrollo creado de forma colaborativa, con arquitectura full-stack moderna y basada en tecnologías JavaScript.
-
-El objetivo principal del proyecto es construir una aplicación web capaz de almacenar, gestionar y consultar datos de forma eficiente, separando claramente frontend, backend y base de datos, para mayor seguridad y orden durante el desarrollo.
-
----
-
-🧱 Arquitectura general
-
-La aplicación sigue una arquitectura cliente-servidor:
-
-React (Frontend) → HTTP (JSON) → Express (Backend) → Prisma → PostgreSQL (Database)
+###### **Orestes** es una plataforma web full-stack en desarrollo, construida con una arquitectura moderna y escalable. El proyecto se centra en la gestión eficiente de datos, manteniendo una separación estricta entre el cliente y el servidor para garantizar un desarrollo colaborativo ordenado.
 
 ---
 
-🎨 Frontend
+### 🧱 Arquitectura del Sistema
+La aplicación utiliza un modelo **cliente-servidor** con comunicación mediante JSON:
 
-Tecnologías:
-
-• React
-• JavaScript (JS / JSX)
-• CSS
-• Vite
-• Node.js
-• npm
-
-Responsabilidades:
-
-• Renderizar la interfaz de usuario
-• Manejar estados y vistas
-• Consumir la API del backend mediante HTTP (fetch / axios)
+`React (Frontend)` ↔ `Express (API)` ↔ `Prisma (ORM)` ↔ `PostgreSQL (DB)`
 
 ---
 
-🧠 Backend
+### 🛠️ Stack Tecnológico
 
-Tecnologías:
-
-• Node.js
-• Express
-• Prisma ORM
-• dotenv
-• nodemon (entorno de desarrollo)
-
-Responsabilidades:
-
-• Exponer una API REST
-• Manejar la lógica de negocio
-• Validar datos
-• Comunicarse con la base de datos
+| Componente | Tecnologías |
+| :--- | :--- |
+| **Frontend** | React, Vite, CSS, JavaScript (JSX) |
+| **Backend** | Node.js, Express, Prisma ORM |
+| **Base de Datos** | PostgreSQL |
+| **Herramientas** | Dotenv, Nodemon, npm |
 
 ---
 
-🗄️ Base de datos
+### 📂 Estructura del Proyecto
+Representación de la raíz y carpetas principales:
 
-Tecnologías:
+```text
+orestes/
+├── frontend/          # Aplicación React + Vite
+│   ├── public/        # Assets y recursos estáticos
+│   └── src/           # Componentes y lógica de UI
+├── backend/           # API REST con Node + Express
+│   ├── prisma/        # Modelado de datos y migraciones
+│   └── .env.example   # Plantilla de configuración
+└── README.md
+```
+---
 
-• PostgreSQL
-• Prisma (modelado y migraciones)
+### ⚙️ Configuración del Entorno
 
-Características:
+Para trabajar en este proyecto, cada desarrollador debe contar con:
 
-• Base de datos relacional
-• Modelos definidos en `schema.prisma`
-• Migraciones versionadas
-• Configuración mediante variables de entorno
+1. **Requisitos previos:** Node.js, PostgreSQL y npm instalados.
+2. **Variables de Entorno:** * Es necesario crear un archivo `.env` dentro de la carpeta `backend/`.
+   * Configurar la URL de conexión a la base de datos y puertos según corresponda.
+3. **Instalación de dependencias:**
+
+```bash
+# En la raíz del proyecto, instalar ambos entornos
+cd frontend && npm install
+cd ../backend && npm install
+```
+
+>[!WARNING]
+>Los archivos `.env` contienen credenciales sensibles y nunca deben incluirse en el repositorio por razones de seguridad
 
 ---
 
-📁 Estructura general del proyecto
+### 🚧 Estado del Proyecto:
 
-orestes/ 
-
-frontend/ # React + Vite
-
-backend/         # Node + Express
+Actualmente el proyecto se encuentra en **fase de desarrollo activo**. Estamos trabajando en la implementación de las funcionalidades base y la estabilización de la API.
 
 ---
 
-⚙️ Configuración del entorno
+### 👥 Equipo
 
-Cada desarrollador debe contar con:
+Proyecto desarrollado de forma colaborativa por el equipo de Caudex.
 
-• Node.js
-• PostgreSQL
-• npm
-
-Además, es necesario crear un archivo `.env` en el backend con las variables de entorno correspondientes.
-
-⚠️ Los archivos `.env` no se incluyen en el repositorio por razones de seguridad.
-
----
-
-🚧 Estado del proyecto:
-
-🛠️ En desarrollo activo.
-
-!Este README es provisorio y se irá actualizando a medida que el proyecto evolucione.
-
----
-
-👥 Equipo
-
-Proyecto desarrollado de forma colaborativa por el equipo de Project Orestes.
+>[!NOTE]
+>Este README es provisorio y se irá actualizando a medida que el proyecto evolucione.
