@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="frontend/public/assets/main/orestes.svg" width="200" alt="Penta">
+  <img src="frontend/public/assets/main/orestes.svg" width="200" alt="Orestes">
 </p>
 
 ###### **Orestes** es una plataforma web full-stack en desarrollo, construida con una arquitectura moderna y escalable. El proyecto se centra en la gestión eficiente de datos, manteniendo una separación estricta entre el cliente y el servidor para garantizar un desarrollo colaborativo ordenado.
