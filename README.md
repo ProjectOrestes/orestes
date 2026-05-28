@@ -20,7 +20,7 @@ La aplicación utiliza un modelo **cliente-servidor** con comunicación mediante
 | **Frontend** | React, Vite, CSS, JavaScript (JSX) |
 | **Backend** | Node.js, Express, Prisma ORM |
 | **Base de Datos** | PostgreSQL |
-| **Herramientas** | Dotenv, Nodemon, npm |
+| Herramientas | Dotenv, Nodemon, pnpm |
 
 ---
 
@@ -43,15 +43,15 @@ orestes/
 
 Para trabajar en este proyecto, cada desarrollador debe contar con:
 
-1. **Requisitos previos:** Node.js, PostgreSQL y npm instalados.
+1. **Requisitos previos:** Node.js, PostgreSQL y pnpm instalados.
 2. **Variables de Entorno:** * Es necesario crear un archivo `.env` dentro de la carpeta `backend/`.
    * Configurar la URL de conexión a la base de datos y puertos según corresponda.
 3. **Instalación de dependencias:**
 
 ```bash
 # En la raíz del proyecto, instalar ambos entornos
-cd frontend && npm install
-cd ../backend && npm install
+cd frontend && pnpm install
+cd ../backend && pnpm install
 ```
 
 >[!WARNING]
